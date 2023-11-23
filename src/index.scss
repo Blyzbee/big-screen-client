@@ -7,3 +7,13 @@
 a {
 	all: unset;
 }
+
+html,
+body {
+	margin: 0;
+	overflow: hidden;
+}
+
+main {
+	overflow-y: scroll;
+}
