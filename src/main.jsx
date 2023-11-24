@@ -11,15 +11,16 @@ import Footer from "./components/Footer/Footer.jsx";
 import Login from "./views/Login/Login.jsx";
 import Home from "./views/Home/Home.jsx";
 
-const MainLayout = () => {
+const MainLayout = ({ noNavbar = false }) => {
 	return (
 		<>
-			<Navbar />
+			{!noNavbar && <Navbar />}
 			<Outlet />
 		</>
 	);
 };
 
+// MISE EN PLACE DES ROUTES
 const mainRouter = createBrowserRouter([
 	{
 		element: <MainLayout />,
@@ -37,6 +38,12 @@ const mainRouter = createBrowserRouter([
 				path: "/surveys",
 				element: <SurveyList />,
 			},
+		],
+	},
+	{
+		element: <MainLayout noNavbar />,
+		errorElement: <Error />,
+		children: [
 			{
 				path: "/survey/:id",
 				element: <Survey />,

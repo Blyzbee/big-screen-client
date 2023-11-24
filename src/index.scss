@@ -1,11 +1,19 @@
+@import "./styles/variables.scss";
+
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
+	font-size: calc(15px + 0.390625vw);
+
+	scroll-behavior: smooth;
 }
 
-a {
+a,
+button {
 	all: unset;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 html,
@@ -16,4 +24,10 @@ body {
 
 main {
 	overflow-y: scroll;
+}
+
+.cardbase {
+	border: 1px solid $color-gray_400;
+	padding: 1rem;
+	border-radius: $border_radius;
 }
