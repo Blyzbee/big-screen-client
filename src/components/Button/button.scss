@@ -7,6 +7,9 @@
 	border: 1px solid $color-interaction;
 	transition: all 300ms;
 	padding: 0.5rem 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&:hover {
 		background-color: $color-interaction;
