@@ -1,6 +1,10 @@
 import React from 'react';
-import './AdminHome.scss';
 import Navbar from '../Navbar/Navbar';
+import GraphLine from '../../components/Graphs/Line';
+import GraphPie from '../../components/Graphs/Pie';
+import GraphRadar from '../../components/Graphs/Radar';
+import GraphDoughnut from '../../components/Graphs/Doughnut';
+import './AdminHome.scss';
 
 const AdminHome = () => {
     return (
@@ -13,9 +17,14 @@ const AdminHome = () => {
                     <h1>Bienvenue dans votre espace administrateur</h1>
                 </div>
 
-                <figure>
-                    {/* Ajoutez ici le contenu de la figure */}
-                </figure>
+                <div className='graphs-area'>
+                    <GraphDoughnut/>
+                    <GraphRadar/>
+                    <GraphPie/>
+                    <GraphLine/>
+                </div>
+
+
             </div>
             
         </div>

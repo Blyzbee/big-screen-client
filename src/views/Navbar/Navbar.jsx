@@ -7,12 +7,14 @@ import {AccountAuth} from "../../services/AccountAuth"
 import './Navbar.scss'
 
 const Navbar = () => {
+    // Déclare une variable navigate qui permet d'utiliser useNavigate
 	const navigate = useNavigate(); 
 
 
 	const logout = () => {
+        // On récupère la fonction logout depuis le fichier services
 		AccountAuth.logout()
-
+        // On navigue vers la page de connexion admin
 		navigate('/admin');
 	};
     return (
@@ -26,6 +28,11 @@ const Navbar = () => {
                     <li><NavLink to="/admin/questions" activeClassName="active-link">Questionnaires</NavLink></li>
                     <li><NavLink to="/admin/answers" activeClassName="active-link">Réponses</NavLink></li>
                 </ul>
+
+                {/* 
+                    Une condition ternaire permet de conditionner l'affichage en fonction de notre 
+                    état de connexion
+                */}
 
                 {AccountAuth.isLogged ? (
 				<Button onClick={logout}>
