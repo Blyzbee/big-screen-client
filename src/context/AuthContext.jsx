@@ -2,8 +2,6 @@ import { createContext, useState } from "react";
 
 export const AuthContext = createContext({
 	token: null,
-	
-	isLoading: false
 });
 
 export const AuthProvider = ({ children }) => {
@@ -12,7 +10,6 @@ export const AuthProvider = ({ children }) => {
 		<AuthContext.Provider
 			value={{
 				token,
-				isLoading,
 				setToken
 			}}
 		>

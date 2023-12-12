@@ -1,10 +1,10 @@
 import React from 'react';
-import './Admin.css';
+import './AdminHome.scss';
 import Navbar from '../Navbar/Navbar';
 
 const AdminHome = () => {
     return (
-        <div>
+        <div className='page-admin-home'>
 
             <Navbar/>
 

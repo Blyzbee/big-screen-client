@@ -73,8 +73,8 @@ const mainRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		{/* <AuthProvider> */}
+		<AuthProvider>
 			<RouterProvider router={mainRouter} />
-		{/* </AuthProvider> */}
+		</AuthProvider>
 	</React.StrictMode>
 );

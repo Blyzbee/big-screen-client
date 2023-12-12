@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Login.css';
+import './Login.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AccountAuth } from '../../services/AccountAuth';
@@ -34,7 +34,7 @@ const Login = () => {
 	};
 
 	return (
-		<div className='form-layout'>
+		<div className='login-page form-layout'>
 		<div className='login-form-container'>
 			<h2>Connexion</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className='form-connexion'>
