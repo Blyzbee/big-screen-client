@@ -1,20 +1,19 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const AuthContext = createContext({
-	currentUser: null,
-	userData: null,
-	isLoading: false,
-	invalidate: () => {},
+	token: null,
+	
+	isLoading: false
 });
 
 export const AuthProvider = ({ children }) => {
+	const [token, setToken] =  useState(null) ;
 	return (
 		<AuthContext.Provider
 			value={{
-				currentUser,
-				userData,
+				token,
 				isLoading,
-				invalidate,
+				setToken
 			}}
 		>
 			{children}
