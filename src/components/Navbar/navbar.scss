@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem;
+	background-color: $color-gray_300;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		flex-direction: column;
+		justify-content: center;
+		width: 20%;
+		height: 100dvh;
+
+		img {
+			margin-bottom: 2rem;
+		}
+	}
+}

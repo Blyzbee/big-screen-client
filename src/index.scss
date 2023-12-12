@@ -31,3 +31,9 @@ main {
 	padding: 1rem;
 	border-radius: $border_radius;
 }
+
+@media screen and (min-width: $breakpoint-desktop) {
+	#root {
+		display: flex;
+	}
+}
