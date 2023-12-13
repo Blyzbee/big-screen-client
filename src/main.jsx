@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
-// import { AuthProvider } from "./context/AuthContext.jsx";
 import Error from "./views/Error/Error.jsx";
 import SurveyList from "./views/SurveyList/SurveyList.jsx";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -13,8 +12,6 @@ import Home from "./views/Home/Home.jsx";
 import AdminHome from "./views/AdminHome/AdminHome";
 import AdminQuestion from "./views/AdminQuestion/AdminQuestion";
 import AdminAnswers from "./views/AdminAnswers/AdminAnswers";
-import { AuthProvider } from "./context/AuthContext";
-
 
 const MainLayout = ({ noNavbar = false }) => {
 	return (
@@ -39,16 +36,6 @@ const mainRouter = createBrowserRouter([
 				path: "/surveys",
 				element: <SurveyList />,
 			},
-		],
-	},
-	{
-		element: <MainLayout noNavbar />,
-		errorElement: <Error />,
-		children: [
-			{
-				path: "/admin",
-				element: <Login                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      />,
-			},
 			{
 				path: "/admin/home",
 				element: <AdminHome />,
@@ -63,6 +50,16 @@ const mainRouter = createBrowserRouter([
 				path: "/admin/answers",
 				element: <AdminAnswers />,
 			},
+		],
+	},
+	{
+		element: <MainLayout noNavbar />,
+		errorElement: <Error />,
+		children: [
+			{
+				path: "/admin",
+				element: <Login />,
+			},
 			{
 				path: "/survey/:id",
 				element: <Survey />,
@@ -73,8 +70,6 @@ const mainRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		{/* <AuthProvider> */}
-			<RouterProvider router={mainRouter} />
-		{/* </AuthProvider> */}
+		<RouterProvider router={mainRouter} />
 	</React.StrictMode>
 );

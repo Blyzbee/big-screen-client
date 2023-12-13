@@ -2,10 +2,16 @@ import React from "react";
 import "./icon.scss";
 import clsx from "clsx";
 
-const Icon = ({ name, my, mx }) => {
+const Icon = ({ name, my, mx, ...props }) => {
 	return (
 		<span
-			className={clsx("icon material-symbols-outlined", my && "my", mx && "mx")}
+			{...props}
+			className={clsx(
+				"icon material-symbols-outlined",
+				my && "my",
+				mx && "mx",
+				props.className
+			)}
 		>
 			{name}
 		</span>

@@ -1,29 +1,22 @@
-import Axios from "./CallerService"
+import Axios from "./CallerService";
 
-let login = (identity) => {
-    return Axios.post('/api/login', identity)
-}
+export const login = (identity) => {
+	return Axios.post("/api/login", identity);
+};
 
+export const saveToken = (token) => {
+	localStorage.setItem("token", token);
+};
 
-let saveToken = (token) => {
-    localStorage.setItem('token', token)
-}
+export const logout = () => {
+	localStorage.removeItem("token");
+};
 
-let logout = () => {
-    localStorage.removeItem('token')
-}
+export const isLogged = () => {
+	let token = localStorage.getItem("token");
+	return token;
+};
 
-let isLogged = () => {
-    let token = localStorage.getItem('token')
-    return token
-}
-
-
-let getToken = () => {
-    return localStorage.getItem('token')
-}
-
-
-export const AccountAuth = {
-    login, saveToken, logout, isLogged, getToken
-}
+export const getToken = () => {
+	return localStorage.getItem("token");
+};
