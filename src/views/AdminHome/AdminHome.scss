@@ -1,8 +1,17 @@
 .page-admin-home{
+    width: 80vw;
     .page-area{
         display: flex;
+        flex-wrap: wrap;
+        width: 80rem;
         flex-direction:column;
         margin-left: 20rem;
+    }
+
+    .graphs-area{
+        display: grid;
+        grid-template-columns: repeat(2, .3fr);
+        grid-template-rows: repeat(2, .3fr);
     }
 }
 
