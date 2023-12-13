@@ -1,10 +1,11 @@
 import React from "react";
-import "./Admin.css";
+import "./AdminAnswers.scss";
+import Navbar from "../Navbar/Navbar";
 
 const AdminAnswers = () => {
 	if (!isLogged()) return <Navigate to="/admin" replace />;
 	return (
-		<div>
+		<div className="page-admin-answers">
 			<div className="page-area">
 				<div>
 					<h1>Espace | Réponses</h1>

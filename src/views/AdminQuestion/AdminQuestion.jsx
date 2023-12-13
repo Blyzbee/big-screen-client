@@ -1,10 +1,11 @@
 import React from "react";
-import "./Admin.css";
+import "./AdminQuestion.scss";
+import Navbar from "../Navbar/Navbar";
 
 const AdminQuestion = () => {
 	if (!isLogged()) return <Navigate to="/admin" replace />;
 	return (
-		<div>
+		<div className="page-admin-question">
 			<div className="page-area">
 				<div>
 					<h1>Espace | Questionnaires </h1>

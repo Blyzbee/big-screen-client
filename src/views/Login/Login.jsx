@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Login.css";
+import "./Login.scss";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { isLogged, login, saveToken } from "../../services/AccountAuth";
@@ -35,7 +35,7 @@ const Login = () => {
 	if (isLogged()) return <Navigate to="/admin/home" replace />;
 
 	return (
-		<div className="form-layout">
+		<div className="login-page form-layout">
 			<div className="login-form-container">
 				<h2>Connexion</h2>
 				<form onSubmit={handleSubmit(onSubmit)} className="form-connexion">

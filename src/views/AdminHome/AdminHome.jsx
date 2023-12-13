@@ -1,12 +1,12 @@
 import React from "react";
-import "./Admin.css";
+import "./AdminHome.scss";
 import { Navigate } from "react-router-dom";
 import { isLogged } from "../../services/AccountAuth";
 
 const AdminHome = () => {
 	if (!isLogged()) return <Navigate to="/admin" replace />;
 	return (
-		<div>
+		<div className="page-admin-home">
 			<div className="page-area">
 				<div>
 					<h1>Bienvenue dans votre espace administrateur</h1>
