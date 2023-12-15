@@ -17,10 +17,8 @@ const AdminHome = () => {
 				</div>
 
 				<div className="graphs-area">
-					<GraphDoughnut />
-					<GraphRadar />
 					<GraphPie />
-					<GraphLine />
+					<GraphRadar />
 				</div>
 			</div>
 		</div>

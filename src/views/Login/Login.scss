@@ -1,62 +1,79 @@
 /* Assurez-vous d'ajuster le style selon vos besoins */
 .login-page {
 
-  .form-layout{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #4C9BA0;
+
+  h1{
+    color: white;
   }
   
   .login-form-container {
-      display: flex;
-      align-items: center;
-      max-width: 800px;
-      min-width: 300px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    max-width: 800px;
+    min-width: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: #ffffff;
+
+  }
+
+  .form-connexion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   
-    form{
-      width: 100%;
-    }
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction:column ;
+  }
     
-    .form-group {
-      margin-bottom: 15px;
-      display: flex;
-      justify-content: center;
-      flex-direction:column ;
-    }
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: .3px solid lightgray;
+    margin-bottom: 10px;
+    border-radius: .1rem;
+  }
     
-    input {
-      width: 100%;
-      padding: 8px;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-    }
+  .btn-submit {
+    color: #4C9BA0;
+    background-color: none;
+    padding: 10px 15px;
+    border: .5px solid #4C9BA0;
+    cursor: pointer;
+  }
+
+  .btn-submit:hover {
+    color: #ffffff;
+    transition: .5s;
+    background-color:#4C9BA0 !important;
+    padding: 10px 20px;
+    border: 1px solid #4C9BA0;
+    cursor: pointer;
+  }
     
-    button {
-      background-color: #4caf50;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .btn-login {
-      display: flex;
-      justify-content: center;
-    }
-  
-    .btn-login button {
-      
-      background-color: lightgray;
-    }
+  .btn-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    width: 100%;
+  }
+
     
 
 }

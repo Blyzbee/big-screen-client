@@ -7,6 +7,7 @@
 	font-size: calc(15px + 0.390625vw);
 
 	scroll-behavior: smooth;
+	overflow-y: scroll;
 }
 
 label {
@@ -44,6 +45,11 @@ main {
 	border: 1px solid $color-gray_400;
 	padding: 1rem;
 	border-radius: $border_radius;
+}
+
+.text-error {
+	color: $color-error;
+	margin-bottom: 1rem;
 }
 
 .text-error {

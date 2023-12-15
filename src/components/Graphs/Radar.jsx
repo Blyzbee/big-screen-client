@@ -11,7 +11,7 @@ const data = {
     datasets: [{
         labels: "Vente de la semaine",
         data: [6, 3, 9, 6, 18],
-        backgroundColor: 'aqua',
+        backgroundColor: 'lightgray',
         borderColor: 'black'
     }]
 }

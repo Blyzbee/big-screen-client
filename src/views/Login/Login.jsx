@@ -35,9 +35,12 @@ const Login = () => {
 	if (isLogged()) return <Navigate to="/admin/home" replace />;
 
 	return (
-		<div className="login-page form-layout">
+		<div className="login-page">
+			<h1>BigScreen</h1>
+
 			<div className="login-form-container">
 				<h2>Connexion</h2>
+
 				<form onSubmit={handleSubmit(onSubmit)} className="form-connexion">
 					<div className="form-group">
 						<label htmlFor="email">Email</label>
@@ -50,6 +53,7 @@ const Login = () => {
 							onChange={onChange}
 						/>
 					</div>
+
 					<div className="form-group">
 						<label htmlFor="password">Password</label>
 						<input
@@ -63,7 +67,7 @@ const Login = () => {
 					</div>
 
 					<div className="btn-login">
-						<input type="submit" value="Connexion" />
+						<input className="btn-submit" type="submit" value="Connexion" />
 					</div>
 				</form>
 			</div>

@@ -3,15 +3,16 @@ import Logo from "../../assets/Logo.png";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import "./navbar.scss";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import clsx from "clsx";
-import { logout } from "../../services/AccountAuth";
+import { isLogged, logout } from "../../services/AccountAuth";
 
 const Navbar = () => {
 	const token = localStorage.getItem("token");
 	const [isNavOpen, setIsNavOpen] = useState(false);
 	const navigate = useNavigate();
 
+	if (!isLogged()) return <Navigate to="/admin" replace />;
 	return (
 		<nav>
 			{isNavOpen && (
