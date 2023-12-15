@@ -5,6 +5,7 @@ import Navbar from '../Navbar/Navbar';
 
 const AdminAnswers = () => {
     const [answers, setAnswers] = useState([]);
+    const [participants, setParticipant] = useState([]);
     const flag = useRef(false);
 
     useEffect(() => {
@@ -28,6 +29,28 @@ const AdminAnswers = () => {
         };
     }, []);
 
+
+    useEffect(() => {
+        const fetchDataP = async () => {
+            try {
+                if (!flag.current) {
+                    const response = await Axios.get("http://127.0.0.1:8000/api/participant");
+                    console.log(response.data.participants);
+                    setParticipant(response.data.participants);
+                    flag.current = true;
+                }
+            } catch (error) {
+                console.error('Erreur de requête API:', error);
+            }
+        };
+
+        fetchDataP();
+
+        return () => {
+            flag.current = false;
+        };
+    }, []);
+
     return (
         <div className='page-admin-answers'>
 
@@ -39,10 +62,18 @@ const AdminAnswers = () => {
                 </div>
 
                 <div>
+                    {participants.map((participant) => (
+                        <div key={participant.id}>
+                            <p>{participant.email}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div>
                     {answers.map((answer) => (
                         <div key={answer.id}>
-                            <h3>{answer.participant_id}</h3>
-                            <h3>{answer.question_id}/20 {answer.response}</h3>
+                            <>{answer.participant_id}</>
+                            <p>{answer.question_id}/20 {answer.response}</p>
                         </div>
                     ))}
                 </div>

@@ -1,7 +1,7 @@
 import Axios from "./CallerService"
 
-let login = (identity) => {
-    return Axios.post('/api/login', identity)
+let login = (token) => {
+    return Axios.post('/api/login', token)
 }
 
 
