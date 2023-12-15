@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
 import GraphLine from "../../components/Graphs/Line";
 import GraphPie from "../../components/Graphs/Pie";
 import GraphRadar from "../../components/Graphs/Radar";

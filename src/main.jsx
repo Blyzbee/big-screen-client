@@ -17,7 +17,9 @@ const MainLayout = ({ noNavbar = false }) => {
 	return (
 		<>
 			{!noNavbar && <Navbar />}
-			<Outlet />
+			<main>
+				<Outlet />
+			</main>
 		</>
 	);
 };
@@ -35,6 +37,10 @@ const mainRouter = createBrowserRouter([
 			{
 				path: "/surveys",
 				element: <SurveyList />,
+			},
+			{
+				path: "/survey/:id",
+				element: <Survey />,
 			},
 			{
 				path: "/admin/home",
@@ -59,10 +65,6 @@ const mainRouter = createBrowserRouter([
 			{
 				path: "/admin",
 				element: <Login />,
-			},
-			{
-				path: "/survey/:id",
-				element: <Survey />,
 			},
 		],
 	},

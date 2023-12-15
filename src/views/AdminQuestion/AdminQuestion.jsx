@@ -1,6 +1,5 @@
 import React from "react";
 import "./AdminQuestion.scss";
-import Navbar from "../Navbar/Navbar";
 
 const AdminQuestion = () => {
 	if (!isLogged()) return <Navigate to="/admin" replace />;

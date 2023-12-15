@@ -3,13 +3,14 @@ import Logo from "../../assets/Logo.png";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import "./navbar.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { logout } from "../../services/AccountAuth";
 
 const Navbar = () => {
 	const token = localStorage.getItem("token");
 	const [isNavOpen, setIsNavOpen] = useState(false);
+	const navigate = useNavigate();
 
 	return (
 		<nav>
@@ -19,7 +20,14 @@ const Navbar = () => {
 					onClick={() => setIsNavOpen(false)}
 				></div>
 			)}
-			<img src={Logo} alt="logo Big Screen" />
+			<img
+				src={Logo}
+				alt="logo Big Screen"
+				onClick={() => {
+					if (token) navigate("/admin/home");
+					else navigate("/");
+				}}
+			/>
 			<Icon
 				className="phone-only"
 				name="menu"
@@ -31,44 +39,44 @@ const Navbar = () => {
 					name="close"
 					onClick={() => setIsNavOpen(false)}
 				/>
-				<ul>
-					<li>
-						<NavLink
-							onClick={() => setIsNavOpen(false)}
-							to="/admin/home"
-							activeClassName="active-link"
-						>
-							Accueil
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							onClick={() => setIsNavOpen(false)}
-							to="/admin/questions"
-							activeClassName="active-link"
-						>
-							Questionnaires
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							onClick={() => setIsNavOpen(false)}
-							to="/admin/answers"
-							activeClassName="active-link"
-						>
-							Réponses
-						</NavLink>
-					</li>
-				</ul>
+				{token && (
+					<ul>
+						<li>
+							<NavLink
+								onClick={() => setIsNavOpen(false)}
+								to="/admin/home"
+								activeClassName="active-link"
+							>
+								Accueil
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								onClick={() => setIsNavOpen(false)}
+								to="/admin/questions"
+								activeClassName="active-link"
+							>
+								Questionnaires
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								onClick={() => setIsNavOpen(false)}
+								to="/admin/answers"
+								activeClassName="active-link"
+							>
+								Réponses
+							</NavLink>
+						</li>
+					</ul>
+				)}
 				{token ? (
 					<Button onClick={() => logout()}>
 						Deconnexion <Icon name="logout" mx />
 					</Button>
 				) : (
-					<Button>
-						<Link to="/admin">
-							Connexion <Icon name="login" mx />
-						</Link>
+					<Button onClick={() => navigate("/admin")}>
+						Connexion <Icon name="login" mx />
 					</Button>
 				)}
 			</div>
