@@ -1,0 +1,17 @@
+.survey {
+	all: unset;
+
+	.carousel {
+		overflow-x: hidden;
+		scroll-behavior: smooth;
+
+		> div {
+			display: flex;
+			gap: 1rem;
+
+			> div {
+				min-width: 100dvw;
+			}
+		}
+	}
+}
