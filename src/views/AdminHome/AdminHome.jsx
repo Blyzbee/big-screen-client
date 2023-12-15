@@ -1,8 +1,6 @@
 import React from "react";
-import GraphLine from "../../components/Graphs/Line";
 import GraphPie from "../../components/Graphs/Pie";
 import GraphRadar from "../../components/Graphs/Radar";
-import GraphDoughnut from "../../components/Graphs/Doughnut";
 import "./AdminHome.scss";
 import { Navigate } from "react-router-dom";
 import { isLogged } from "../../services/AccountAuth";

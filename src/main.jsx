@@ -6,7 +6,6 @@ import SurveyList from "./views/SurveyList/SurveyList.jsx";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Survey from "./views/Survey/Survey.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
-// import Footer from "./components/Footer/Footer.jsx";
 import Login from "./views/Login/Login.jsx";
 import Home from "./views/Home/Home.jsx";
 import AdminHome from "./views/AdminHome/AdminHome";

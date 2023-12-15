@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./AdminQuestion.scss";
-import Navbar from "../Navbar/Navbar";
 import Axios from "../../services/CallerService";
 import { isLogged } from "../../services/AccountAuth";
 import { Navigate } from "react-router-dom";
@@ -35,7 +34,6 @@ const AdminQuestion = () => {
 	if (!isLogged()) return <Navigate to="/admin" replace />;
 	return (
 		<div className="page-admin-question">
-			<Navbar />
 			<div className="page-area">
 				<div>
 					<h1>

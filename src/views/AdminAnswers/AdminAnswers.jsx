@@ -29,8 +29,6 @@ const AdminAnswers = () => {
 
 	return (
 		<div className="page-admin-answers">
-			<Navbar />
-
 			<div className="page-area">
 				<div>
 					<h1>
