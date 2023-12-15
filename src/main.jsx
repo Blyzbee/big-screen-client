@@ -16,7 +16,7 @@ const MainLayout = ({ noNavbar = false }) => {
 	return (
 		<>
 			{!noNavbar && <Navbar />}
-			<main>
+			<main className={noNavbar ? "no-navbar" : ""}>
 				<Outlet />
 			</main>
 		</>

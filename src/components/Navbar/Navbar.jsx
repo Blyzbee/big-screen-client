@@ -3,16 +3,15 @@ import Logo from "../../assets/Logo.png";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import "./navbar.scss";
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import clsx from "clsx";
-import { isLogged, logout } from "../../services/AccountAuth";
+import { logout } from "../../services/AccountAuth";
 
 const Navbar = () => {
 	const token = localStorage.getItem("token");
 	const [isNavOpen, setIsNavOpen] = useState(false);
 	const navigate = useNavigate();
 
-	if (!isLogged()) return <Navigate to="/admin" replace />;
 	return (
 		<nav>
 			{isNavOpen && (
@@ -43,11 +42,7 @@ const Navbar = () => {
 				{token && (
 					<ul>
 						<li>
-							<NavLink
-								onClick={() => setIsNavOpen(false)}
-								to="/admin/home"
-								activeClassName="active-link"
-							>
+							<NavLink onClick={() => setIsNavOpen(false)} to="/admin/home">
 								Accueil
 							</NavLink>
 						</li>
@@ -55,24 +50,24 @@ const Navbar = () => {
 							<NavLink
 								onClick={() => setIsNavOpen(false)}
 								to="/admin/questions"
-								activeClassName="active-link"
 							>
 								Questionnaires
 							</NavLink>
 						</li>
 						<li>
-							<NavLink
-								onClick={() => setIsNavOpen(false)}
-								to="/admin/answers"
-								activeClassName="active-link"
-							>
+							<NavLink onClick={() => setIsNavOpen(false)} to="/admin/answers">
 								Réponses
 							</NavLink>
 						</li>
 					</ul>
 				)}
 				{token ? (
-					<Button onClick={() => logout()}>
+					<Button
+						onClick={() => {
+							logout();
+							navigate("/admin");
+						}}
+					>
 						Deconnexion <Icon name="logout" mx />
 					</Button>
 				) : (

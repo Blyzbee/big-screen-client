@@ -1,18 +1,16 @@
-.page-admin-home{
-    width: 80vw;
-    .page-area{
-        display: flex;
-        flex-wrap: wrap;
-        width: 80rem;
-        flex-direction:column;
-        margin-left: 20rem;
-        overflow-y:scroll;
-    }
+.page-admin-home {
+	padding: 1rem;
 
-    .graphs-area{
-        display: grid;
-        grid-template-columns: repeat(2, .3fr);
-        grid-template-rows: repeat(2, .3fr);
-    }
+	.page-area {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		overflow-y: scroll;
+	}
+
+	.graphs-area {
+		display: grid;
+		grid-template-columns: repeat(2, 0.3fr);
+		grid-template-rows: repeat(2, 0.3fr);
+	}
 }
-

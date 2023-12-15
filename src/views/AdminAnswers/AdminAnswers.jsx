@@ -1,32 +1,27 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "../../services/CallerService";
 import "./AdminAnswers.scss";
+import { isLogged } from "../../services/AccountAuth";
+import { Navigate } from "react-router-dom";
 
 const AdminAnswers = () => {
 	const [answers, setAnswers] = useState([]);
-	const flag = useRef(false);
+
+	const fetchData = async () => {
+		try {
+			const response = await Axios.get("/answers");
+			console.log(response.data.answers);
+			setAnswers(response.data.answers);
+		} catch (error) {
+			console.error("Erreur de requête API:", error);
+		}
+	};
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				if (!flag.current) {
-					const response = await Axios.get("http://127.0.0.1:8000/api/answers");
-					console.log(response.data.answers);
-					setAnswers(response.data.answers);
-					flag.current = true;
-				}
-			} catch (error) {
-				console.error("Erreur de requête API:", error);
-			}
-		};
-
 		fetchData();
-
-		return () => {
-			flag.current = false;
-		};
 	}, []);
 
+	if (!isLogged()) return <Navigate to="/admin" replace />;
 	return (
 		<div className="page-admin-answers">
 			<div className="page-area">

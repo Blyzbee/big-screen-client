@@ -1,23 +1,16 @@
-.page-admin-answers{
-    height: 100vh;
-    .page-area{
-        display: flex;
-        flex-direction:column;
-        margin-left: 20rem;
-        margin-right: 20rem;
-        padding-right: 10rem;
-        overflow-y:scroll;
-        height: 100vh;
-        width: 70vw;
-    }
+.page-admin-answers {
+	.page-area {
+		display: flex;
+		flex-direction: column;
+	}
 
-    span{
-        color: #3EBEC6;
-    }
+	span {
+		color: #3ebec6;
+	}
 
-    .choices{
-        display: flex;
-        justify-content: space-around;
-        background-color: #3EBEC6;
-    }
+	.choices {
+		display: flex;
+		justify-content: space-around;
+		background-color: #3ebec6;
+	}
 }

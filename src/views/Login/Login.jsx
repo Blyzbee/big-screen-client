@@ -3,6 +3,7 @@ import "./Login.scss";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { isLogged, login, saveToken } from "../../services/AccountAuth";
+import Button from "../../components/Button/Button";
 
 const Login = () => {
 	let navigate = useNavigate();
@@ -66,9 +67,7 @@ const Login = () => {
 						/>
 					</div>
 
-					<div className="btn-login">
-						<input className="btn-submit" type="submit" value="Connexion" />
-					</div>
+					<Button type="submit">Connexion</Button>
 				</form>
 			</div>
 		</div>

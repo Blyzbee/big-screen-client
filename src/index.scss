@@ -7,7 +7,6 @@
 	font-size: calc(15px + 0.390625vw);
 
 	scroll-behavior: smooth;
-	overflow-y: scroll;
 }
 
 label {
@@ -39,6 +38,10 @@ body {
 main {
 	overflow-y: scroll;
 	height: 100dvh;
+}
+
+.no-navbar {
+	width: 100%;
 }
 
 .cardbase {

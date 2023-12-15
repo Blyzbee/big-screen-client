@@ -1,7 +1,8 @@
 import Axios from "./CallerService";
 
-export const login = (identity) => {
-	return Axios.post("/api/login", identity);
+export const login = (token) => {
+	console.log(token);
+	return Axios.post("/login", token);
 };
 
 export const saveToken = (token) => {

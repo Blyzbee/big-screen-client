@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./survey.scss";
 import Button from "../../components/Button/Button";
+import Axios from "../../services/CallerService";
 
 const questions = [
 	{ id: 1, text: "Votre adresse mail", type: "B" },
@@ -155,6 +156,12 @@ const Survey = () => {
 		return () => {
 			window.removeEventListener("resize", handleResize);
 		};
+	}, []);
+
+	useEffect(() => {
+		Axios.get("/surveys")
+			.then((res) => console.log(res))
+			.catch((err) => console.log(err));
 	}, []);
 
 	return (
