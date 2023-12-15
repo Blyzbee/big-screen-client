@@ -1,6 +1,6 @@
 import React from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js';
-import { Pie, Line } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
 import './Graph.scss';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -32,37 +32,13 @@ const data = {
   ],
 };
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
-const lineData = {
-    labels: ['Mon', 'Tue', 'Wed'],
-    datasets: [{
-        labels: "Vente de la semaine",
-        data: [6, 3, 9],
-        backgroundColor: 'aqua',
-        borderColor: 'black',
-        pointBorderColor: 'aqua',
-        fill: true,
-        tension: 0.4
-    }]
-}
-
-const options = {
-    plugins: {
-        legend:true
-    },
-
-    scales: {
-        y:{}
-    }
-}
 
 function GraphPie() {
 
     return (
         <div className='graph-style'>
             <Pie  data={data}/>
-            <Line data={lineData} options={options}/>
         </div>
     )
     

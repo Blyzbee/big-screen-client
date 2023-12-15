@@ -7,6 +7,8 @@
 	font-size: calc(15px + 0.390625vw);
 
 	scroll-behavior: smooth;
+	overflow-y:scroll;
+
 }
 
 label {
@@ -37,8 +39,8 @@ main {
 	border-radius: $border_radius;
 }
 
-@media screen and (min-width: $breakpoint-desktop) {
-	#root {
-		display: flex;
-	}
-}
+// @media screen and (min-width: $breakpoint-desktop) {
+// 	#root {
+// 		display: flex;
+// 	}
+// }

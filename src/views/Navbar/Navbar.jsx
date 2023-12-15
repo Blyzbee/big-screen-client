@@ -21,28 +21,31 @@ const Navbar = () => {
         <div className='navbar-area main-admin-container'>
             <nav>
                 
-                <h2>BigScreen</h2>
-
                 <ul>
+                    <h2>BigScreen</h2>
+
+                    
                     <li><NavLink to="/admin/home" activeClassName="active-link">Accueil</NavLink></li>
                     <li><NavLink to="/admin/questions" activeClassName="active-link">Questionnaires</NavLink></li>
                     <li><NavLink to="/admin/answers" activeClassName="active-link">Réponses</NavLink></li>
-                </ul>
 
-                {/* 
+                    {/* 
                     Une condition ternaire permet de conditionner l'affichage en fonction de notre 
                     état de connexion
-                */}
+                    */}
 
-                {AccountAuth.isLogged ? (
-				<Button onClick={logout}>
-					Deconnexion <Icon name="logout" mx />
-				</Button>
-			) : (
-				<Button>
-					Connexion <Icon name="login" mx />
-				</Button>
-			)}
+                    {AccountAuth.isLogged ? (
+                        <Button onClick={logout}>
+                            Deconnexion <Icon name="logout" mx />
+                        </Button>
+                    ) : (
+                        <Button>
+                            Connexion <Icon name="login" mx />
+                        </Button>
+                    )}
+
+                </ul>
+
             </nav>
         </div>
     );

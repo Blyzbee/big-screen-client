@@ -16,7 +16,7 @@ const Navbar = () => {
 		.then((res) => {console.log(res);
 		navigate('/admin');
 		})
-
+		
 		.catch((error) => {
 		console.error('Logout error:', error);
 		});

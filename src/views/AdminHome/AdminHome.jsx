@@ -1,9 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
-import GraphLine from '../../components/Graphs/Line';
 import GraphPie from '../../components/Graphs/Pie';
 import GraphRadar from '../../components/Graphs/Radar';
-import GraphDoughnut from '../../components/Graphs/Doughnut';
 import './AdminHome.scss';
 
 const AdminHome = () => {
@@ -18,10 +16,8 @@ const AdminHome = () => {
                 </div>
 
                 <div className='graphs-area'>
-                    <GraphDoughnut/>
-                    <GraphRadar/>
                     <GraphPie/>
-                    <GraphLine/>
+                    <GraphRadar/>
                 </div>
 
 
