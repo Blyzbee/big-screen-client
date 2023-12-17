@@ -7,18 +7,7 @@ import Button from "../../components/Button/Button";
 
 const Login = () => {
 	let navigate = useNavigate();
-	const { register, handleSubmit } = useForm();
-	const [identify, setIdentify] = useState({
-		email: "",
-		password: "",
-	});
-
-	const onChange = (e) => {
-		setIdentify({
-			...identify,
-			[e.target.name]: e.target.value,
-		});
-	};
+	const { register, handleSubmit, setValue } = useForm();
 
 	const onSubmit = (data) => {
 		login(data)
@@ -62,8 +51,6 @@ const Login = () => {
 							name="password"
 							className="form-input"
 							{...register("password", { required: true })}
-							value={identify.password}
-							onChange={onChange}
 						/>
 					</div>
 

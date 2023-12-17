@@ -6,6 +6,7 @@ import { getAnswers } from "../../services/Api";
 
 const AdminAnswers = () => {
 	const [answers, setAnswers] = useState([]);
+	const [participants, setParticipant] = useState([]);
 
 	useEffect(() => {
 		getAnswers()
@@ -22,7 +23,13 @@ const AdminAnswers = () => {
 						Espace | <span>Réponses</span>
 					</h1>
 				</div>
-
+				<div>
+					{participants.map((participant) => (
+						<div key={participant.id}>
+							<p>{participant.email}</p>
+						</div>
+					))}
+				</div>
 				<div>
 					{answers.map((answer) => (
 						<div key={answer.id}>
