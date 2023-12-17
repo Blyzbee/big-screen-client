@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import Error from "./views/Error/Error.jsx";
-import SurveyList from "./views/SurveyList/SurveyList.jsx";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Survey from "./views/Survey/Survey.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
@@ -11,6 +10,7 @@ import Home from "./views/Home/Home.jsx";
 import AdminHome from "./views/AdminHome/AdminHome";
 import AdminQuestion from "./views/AdminQuestion/AdminQuestion";
 import AdminAnswers from "./views/AdminAnswers/AdminAnswers";
+import ParticipantAnswersView from "./views/ParticipantAnswersView/ParticipantAnswersView.jsx";
 
 const MainLayout = ({ noNavbar = false }) => {
 	return (
@@ -34,8 +34,8 @@ const mainRouter = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: "/surveys",
-				element: <SurveyList />,
+				path: "/answers/:id",
+				element: <ParticipantAnswersView />,
 			},
 			{
 				path: "/survey/:id",

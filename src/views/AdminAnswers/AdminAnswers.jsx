@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./AdminAnswers.scss";
 import { isLogged } from "../../services/AccountAuth";
 import { Navigate } from "react-router-dom";
-import { getAnswers } from "../../services/Api";
+import { getAnswers, getParticipants } from "../../services/Api";
+import Loading from "../../components/Loading/Loading";
+import ParticipantAnswers from "../../components/ParticipantAnswers/ParticipantAnswers";
 
 const AdminAnswers = () => {
-	const [answers, setAnswers] = useState([]);
-	const [participants, setParticipant] = useState([]);
+	const [participants, setParticipants] = useState(null);
+	const [selectedParticipant, setSelectedParticipant] = useState(null);
+	const [answers, setAnswers] = useState(null);
 
 	useEffect(() => {
-		getAnswers()
-			.then((res) => setAnswers(res.data.answers))
+		getParticipants()
+			.then((res) => setParticipants(res.data.participants))
 			.catch(() => alert("une erreur est survenue"));
 	}, []);
 
@@ -24,21 +27,28 @@ const AdminAnswers = () => {
 					</h1>
 				</div>
 				<div>
-					{participants?.map((participant) => (
-						<div key={participant.id}>
-							<p>{participant.email}</p>
-						</div>
-					))}
-				</div>
-				<div>
-					{answers?.map((answer) => (
-						<div key={answer.id}>
-							<h3>{answer.participant_id}</h3>
-							<h3>
-								{answer.question_id}/20 {answer.response}
-							</h3>
-						</div>
-					))}
+					{!participants && <Loading />}
+					{participants &&
+						participants.map((participant) => (
+							<div
+								key={participant.id}
+								onClick={() => {
+									if (selectedParticipant !== participant.id) {
+										getAnswers(participant.id)
+											.then((res) => {
+												setAnswers(res.data.answers);
+												setSelectedParticipant(participant.id);
+											})
+											.catch(() => alert("une erreur est survenue"));
+									} else setSelectedParticipant(null);
+								}}
+							>
+								<h3>{participant.email}</h3>
+								{participant.id === selectedParticipant && (
+									<ParticipantAnswers answers={answers} />
+								)}
+							</div>
+						))}
 				</div>
 			</div>
 		</div>
