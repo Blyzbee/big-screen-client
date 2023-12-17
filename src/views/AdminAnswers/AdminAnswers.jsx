@@ -24,14 +24,14 @@ const AdminAnswers = () => {
 					</h1>
 				</div>
 				<div>
-					{participants.map((participant) => (
+					{participants?.map((participant) => (
 						<div key={participant.id}>
 							<p>{participant.email}</p>
 						</div>
 					))}
 				</div>
 				<div>
-					{answers.map((answer) => (
+					{answers?.map((answer) => (
 						<div key={answer.id}>
 							<h3>{answer.participant_id}</h3>
 							<h3>
