@@ -1,34 +1,19 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./AdminQuestion.scss";
-import Axios from "../../services/CallerService";
 import { isLogged } from "../../services/AccountAuth";
 import { Navigate } from "react-router-dom";
+import { getQuestions } from "../../services/Api";
+import Loading from "../../components/Loading/Loading";
 
 const AdminQuestion = () => {
-	const [questions, setQuestions] = useState([]);
-	const flag = useRef(false);
+	const [questions, setQuestions] = useState(null);
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				if (!flag.current) {
-					const response = await Axios.get(
-						"http://127.0.0.1:8000/api/questions"
-					);
-					console.log(response.data.questions);
-					setQuestions(response.data.questions);
-					flag.current = true;
-				}
-			} catch (error) {
-				console.error("Erreur de requête API:", error);
-			}
-		};
-
-		fetchData();
-
-		return () => {
-			flag.current = false;
-		};
+		getQuestions()
+			.then((res) => {
+				setQuestions(res.data.questions);
+			})
+			.catch((err) => console.log(err));
 	}, []);
 
 	if (!isLogged()) return <Navigate to="/admin" replace />;
@@ -42,17 +27,19 @@ const AdminQuestion = () => {
 				</div>
 
 				<div>
-					{questions.map((question) => (
-						<div className="questionAdmin" key={question.id}>
-							<p>
-								<span>{question.title}</span> | {question.body}{" "}
-							</p>
+					{!questions && <Loading />}
+					{questions &&
+						questions.map((question) => (
+							<div className="questionAdmin" key={question.id}>
+								<p>
+									<span>{question.title}</span> | {question.body}{" "}
+								</p>
 
-							<div className="choices">
-								<p>{question.type}</p>
+								<div className="choices">
+									<p>{question.type}</p>
+								</div>
 							</div>
-						</div>
-					))}
+						))}
 				</div>
 			</div>
 		</div>

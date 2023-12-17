@@ -88,7 +88,7 @@ const Survey = () => {
 								)}
 								{question.type === "C" && (
 									<input
-										type="range"
+										type="number"
 										onChange={(e) => handleChange(question.id, e.target.value)}
 										min={1}
 										max={5}
