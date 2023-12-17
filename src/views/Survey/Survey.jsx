@@ -1,124 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./survey.scss";
 import Button from "../../components/Button/Button";
-import { getQuestions } from "../../services/Api";
-
-// const questions = [
-// 	{ id: 1, text: "Votre adresse mail", type: "B" },
-// 	{ id: 2, text: "Votre âge", type: "B" },
-// 	{
-// 		id: 3,
-// 		text: "Votre sexe",
-// 		type: "A",
-// 		options: ["Homme", "Femme", "Préfère ne pas répondre"],
-// 	},
-// 	{
-// 		id: 4,
-// 		text: "Nombre de personne dans votre foyer (adulte & enfants)",
-// 		type: "C",
-// 	},
-// 	{ id: 5, text: "Votre profession", type: "B" },
-// 	{
-// 		id: 6,
-// 		text: "Quel marque de casque VR utilisez-vous ?",
-// 		type: "A",
-// 		options: [
-// 			"Oculus Quest",
-// 			"Oculus Rift/s",
-// 			"HTC Vive",
-// 			"Windows Mixed Reality",
-// 			"Valve index",
-// 		],
-// 	},
-// 	{
-// 		id: 7,
-// 		text: "Sur quel magasin d’application achetez vous des contenus VR ?",
-// 		type: "A",
-// 		options: ["SteamVR", "Occulus store", "Viveport", "Windows store"],
-// 	},
-// 	{
-// 		id: 8,
-// 		text: "Quel casque envisagez-vous d’acheter dans un futur proche ?",
-// 		type: "A",
-// 		options: [
-// 			"Occulus Quest",
-// 			"Occulus Go",
-// 			"HTC Vive Pro",
-// 			"PSVR",
-// 			"Autre",
-// 			"Aucun",
-// 		],
-// 	},
-// 	{
-// 		id: 9,
-// 		text: "Au sein de votre foyer, combien de personnes utilisent votre casque VR pour regarder Bigscreen ?",
-// 		type: "C",
-// 	},
-// 	{
-// 		id: 10,
-// 		text: "Vous utilisez principalement Bigscreen pour :",
-// 		type: "A",
-// 		options: [
-// 			"regarder la TV en direct",
-// 			"regarder des films",
-// 			"travailler",
-// 			"jouer en solo",
-// 			"jouer en équipe",
-// 		],
-// 	},
-// 	{
-// 		id: 11,
-// 		text: "Combien donnez-vous de points pour la qualité de l’image sur Bigscreen ?",
-// 		type: "C",
-// 	},
-// 	{
-// 		id: 12,
-// 		text: "Combien donnez-vous de points pour le confort d’utilisation de l’interface Bigscreen ?",
-// 		type: "C",
-// 	},
-// 	{
-// 		id: 13,
-// 		text: "Combien donnez-vous de points pour la connexion réseau de Bigscreen ?",
-// 		type: "C",
-// 	},
-// 	{
-// 		id: 14,
-// 		text: "Combien donnez-vous de points pour la qualité des graphismes 3D dans Bigscreen ?",
-// 		type: "C",
-// 	},
-// 	{
-// 		id: 15,
-// 		text: "Combien donnez-vous de points pour la qualité audio dans Bigscreen ?",
-// 		type: "C",
-// 	},
-// 	{
-// 		id: 16,
-// 		text: "Aimeriez-vous avoir des notifications plus précises au cours de vos sessions Bigscreen ?",
-// 		type: "A",
-// 		options: ["Oui", "Non"],
-// 	},
-// 	{
-// 		id: 17,
-// 		text: "Aimeriez-vous pouvoir inviter un ami à rejoindre votre session via son smartphone ?",
-// 		type: "A",
-// 		options: ["Oui", "Non"],
-// 	},
-// 	{
-// 		id: 18,
-// 		text: "Aimeriez-vous pouvoir enregistrer des émissions TV pour pouvoir les regarder ultérieurement ?",
-// 		type: "C",
-// 	},
-// 	{
-// 		id: 19,
-// 		text: "Aimeriez-vous jouer à des jeux exclusifs sur votre Bigscreen ?",
-// 		type: "C",
-// 	},
-// 	{
-// 		id: 20,
-// 		text: "Quelle nouvelle fonctionnalité devrait exister sur Bigscreen ?",
-// 		type: "B",
-// 	},
-// ];
+import { getQuestions, sendAnswers } from "../../services/Api";
+import Loading from "../../components/Loading/Loading";
 
 const Survey = () => {
 	const [formData, setFormData] = useState({});
@@ -134,19 +18,22 @@ const Survey = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setErrorMsg("");
-		console.log("Données soumises:", formData);
+		console.log(formData);
 		if (!formData[step]) {
 			setErrorMsg("veuillez remplir le champ");
 			return;
 		}
-		if (step < 20) {
+		if (step < 20 && screenWidth < 1120) {
 			setStep(step + 1);
-		} else {
-			const url = crypto.randomUUID();
-			console.log("send responses");
+			return;
 		}
+
+		sendAnswers(formData)
+			.then((res) => console.log(res))
+			.catch((err) => console.log(err));
 	};
 
+	// check phone or desktop screen
 	useEffect(() => {
 		setscreenWidth(window.innerWidth);
 		const handleResize = () => {
@@ -171,6 +58,7 @@ const Survey = () => {
 			});
 	}, []);
 
+	if (!questions) return <Loading />;
 	return (
 		<form className="survey" onSubmit={handleSubmit}>
 			<div className="carousel">

@@ -40,10 +40,6 @@ main {
 	height: 100dvh;
 }
 
-.no-navbar {
-	width: 100%;
-}
-
 .cardbase {
 	border: 1px solid $color-gray_400;
 	padding: 1rem;
@@ -63,5 +59,13 @@ main {
 @media screen and (min-width: $breakpoint-desktop) {
 	#root {
 		display: flex;
+	}
+
+	main {
+		width: 80%;
+	}
+
+	.no-navbar {
+		width: 100%;
 	}
 }
