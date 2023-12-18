@@ -4,6 +4,10 @@ export const getAnswers = (participantId) => {
 	return Axios.get("/answers/" + participantId);
 };
 
+export const getAllAnswers = () => {
+	return Axios.get("/allAnswers");
+};
+
 export const getAnswersByUrl = (participantUrl) => {
 	return Axios.get("/answersByUrl/" + participantUrl);
 };

@@ -39,8 +39,6 @@ const Login = () => {
 							name="email"
 							className="form-input"
 							{...register("email", { required: true })}
-							value={identify.email}
-							onChange={onChange}
 						/>
 					</div>
 

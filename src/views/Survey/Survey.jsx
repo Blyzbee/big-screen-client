@@ -29,8 +29,14 @@ const Survey = () => {
 		}
 
 		sendAnswers(formData)
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err));
+			.then((res) =>
+				alert(
+					`Votre réponse à bien été enregistrée. Voici votre lien pour consulter vos réponse: ${
+						import.meta.env.VITE_BASE_URL
+					}answers/${res.data.url}`
+				)
+			)
+			.catch((err) => alert("Une erreur est survenue."));
 	};
 
 	// check phone or desktop screen
