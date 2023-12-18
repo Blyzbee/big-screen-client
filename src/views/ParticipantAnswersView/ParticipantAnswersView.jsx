@@ -9,7 +9,7 @@ const ParticipantAnswersView = () => {
 
 	useEffect(() => {
 		getAnswersByUrl(participantUrl).then((res) => {
-			setAnswers(res.data.answers);
+			setAnswers(Object.values(res.data.answers));
 		});
 	}, []);
 

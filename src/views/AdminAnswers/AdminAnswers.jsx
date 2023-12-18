@@ -36,7 +36,7 @@ const AdminAnswers = () => {
 									if (selectedParticipant !== participant.id) {
 										getAnswers(participant.id)
 											.then((res) => {
-												setAnswers(res.data.answers);
+												setAnswers(Object.values(res.data.answers));
 												setSelectedParticipant(participant.id);
 											})
 											.catch(() => alert("une erreur est survenue"));

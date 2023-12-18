@@ -21,6 +21,11 @@ input {
 	border: 1px solid $color-gray_500;
 }
 
+select {
+	padding: 0.5rem 1rem;
+	border-radius: $border_radius;
+}
+
 a,
 button {
 	all: unset;

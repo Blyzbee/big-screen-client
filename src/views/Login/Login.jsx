@@ -29,16 +29,16 @@ const Login = () => {
             <div className="login-form-container">
                 <h2>Connexion</h2>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="form-connexion">
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            className="form-input"
-                            {...register("email", { required: true })}
-                        />
-                    </div>
+				<form onSubmit={handleSubmit(onSubmit)} className="form-connexion">
+					<div className="form-group">
+						<label htmlFor="email">Email</label>
+						<input
+							type="email"
+							name="email"
+							className="form-input"
+							{...register("email", { required: true })}
+						/>
+					</div>
 
                     <div className="form-group">
                         <label htmlFor="password">Password</label>

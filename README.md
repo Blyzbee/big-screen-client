@@ -1,12 +1,12 @@
-# React + Vite
+Pour lancer le projet :
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-client:
+ajouter un .env et rentrez les données suivantes:
+`VITE_BASE_URL="localhost:5173/"` (ajustez en fonction du pour sur lequel tourne votre client)
+lancez `npm install`
+lancez `npm run dev`
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-#Lien Trello
-
-- [Vers le Trello du projet](https://trello.com/b/4BQcjIoD/projet-bigscreen)
+-serveur:
+dupliquez le .env.exemple et modifiez les lignes 11 à 16 en fonction de vos identifiants de base de donnée
+lancez `composer install`
+lancez `php artisan serve`
