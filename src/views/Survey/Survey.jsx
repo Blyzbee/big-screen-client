@@ -61,12 +61,15 @@ const Survey = () => {
 	if (!questions) return <Loading />;
 	return (
 		<form className="survey" onSubmit={handleSubmit}>
+
 			<div className="carousel">
+			<h2>Questionnaire</h2>
+			<p>Veuillez à bien remplir tous les champs du formulaire.</p>
 				<div style={{ marginLeft: `${-100 * (step - 1)}dvw` }}>
 					{questions &&
 						questions.map((question) => (
 							<div key={question.id}>
-								<label>{`Question ${question.id}/20: ${question.body}`}</label>
+								<label>{`${question.id}/20 | ${question.body}`}</label>
 								{question.type === "A" && (
 									<select
 										onChange={(e) => handleChange(question.id, e.target.value)}

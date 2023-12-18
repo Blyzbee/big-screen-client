@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+
+.page-home{
+
+
+
+    font-family: 'Roboto Condensed', sans-serif;
+
+    h2{
+        padding: 0 1rem;
+    }
+
+    li {
+        list-style-type: none;
+        text-decoration: none;
+        background-color: $color-white ;
+        border: 1px solid $color-gray_400;
+        padding: 1rem;
+        font-size: .8rem;
+
+        display: flex;
+        align-items: center;
+    }
+    .surveylist{
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
