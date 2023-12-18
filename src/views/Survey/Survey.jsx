@@ -29,14 +29,15 @@ const Survey = () => {
 		}
 
 		sendAnswers(formData)
-			.then((res) =>
+			.then((res) => {
+				console.log(res.data);
 				alert(
 					`Votre réponse à bien été enregistrée. Voici votre lien pour consulter vos réponse: ${
 						import.meta.env.VITE_BASE_URL
 					}answers/${res.data.url}`
-				)
-			)
-			.catch((err) => alert("Une erreur est survenue."));
+				);
+			})
+			.catch((err) => console.log(err));
 	};
 
 	// check phone or desktop screen
@@ -68,11 +69,13 @@ const Survey = () => {
 	return (
 		<form className="survey" onSubmit={handleSubmit}>
 			<div className="carousel">
+				<h2>Questionnaire</h2>
+				<p>Veuillez à bien remplir tous les champs du formulaire.</p>
 				<div style={{ marginLeft: `${-100 * (step - 1)}dvw` }}>
 					{questions &&
 						questions.map((question) => (
 							<div key={question.id}>
-								<label>{`Question ${question.id}/20: ${question.body}`}</label>
+								<label>{`${question.id}/20 | ${question.body}`}</label>
 								{question.type === "A" && (
 									<select
 										onChange={(e) => handleChange(question.id, e.target.value)}

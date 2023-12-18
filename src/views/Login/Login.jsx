@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./Login.scss";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -7,7 +6,7 @@ import Button from "../../components/Button/Button";
 
 const Login = () => {
 	let navigate = useNavigate();
-	const { register, handleSubmit, setValue } = useForm();
+	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
 		login(data)
@@ -16,7 +15,6 @@ const Login = () => {
 				saveToken(res.data.token);
 				navigate("/admin/home");
 			})
-
 			.catch((error) => {
 				console.error("Login error:", error);
 			});

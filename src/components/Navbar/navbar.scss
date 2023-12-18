@@ -5,8 +5,10 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
-	background-color: $color-gray_300;
+	background-color:$color-primary;
 	position: relative;
+	font-family: 'Roboto Condensed', sans-serif;
+	color: $color-white;
 
 	ul,
 	li {

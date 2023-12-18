@@ -23,3 +23,7 @@ export const getQuestions = () => {
 export const sendAnswers = (formData) => {
 	return Axios.post("/answers/register", { formData });
 };
+
+export const getAnswersCount = (questionId) => {
+	return Axios.post("/questions/"+questionId+"/answers/count", { questionId});
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../../assets/Logo.png";
+// import Logo from "../../assets/Logo.png";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import "./navbar.scss";
@@ -20,14 +20,25 @@ const Navbar = () => {
 					onClick={() => setIsNavOpen(false)}
 				></div>
 			)}
-			<img
+			{/* <img
 				src={Logo}
 				alt="logo Big Screen"
 				onClick={() => {
 					if (token) navigate("/admin/home");
 					else navigate("/");
 				}}
-			/>
+			/> */}
+
+			<div 	
+				onClick={() => {
+				if (token) navigate("/admin/home");
+				else navigate("/");
+			}}>
+
+				<h1>BIGSCREEN</h1>
+			</div>
+
+
 			<Icon
 				className="phone-only"
 				name="menu"
