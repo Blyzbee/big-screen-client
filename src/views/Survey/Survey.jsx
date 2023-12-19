@@ -75,16 +75,6 @@ const Survey = () => {
 	return (
 
 		<div>
-			<ReactModal
-				isOpen={isModalOpen}
-				onRequestClose={() => setIsModalOpen(false)}
-                contentLabel="Voir réponse a été enregistré"
-            >
-                {/* Ajoutez le contenu personnalisé ici */}
-                <h2>Merci ! <br></br> Votre réponse a bien été enregistrée</h2>
-			</ReactModal>
-
-
 			<form className="survey" onSubmit={handleSubmit}>
 
 				<div className="carousel">

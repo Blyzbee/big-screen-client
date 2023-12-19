@@ -27,7 +27,7 @@ const MainLayout = ({ noNavbar = false }) => {
 const mainRouter = createBrowserRouter([
 	{
 		element: <MainLayout />,
-		errorElement: <Error />,
+		// errorElement: <Error />,
 		children: [
 			{
 				path: "/",
@@ -59,7 +59,7 @@ const mainRouter = createBrowserRouter([
 	},
 	{
 		element: <MainLayout noNavbar />,
-		errorElement: <Error />,
+		// errorElement: <Error />,
 		children: [
 			{
 				path: "/admin",

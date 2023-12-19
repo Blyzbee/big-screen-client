@@ -25,5 +25,5 @@ export const sendAnswers = (formData) => {
 };
 
 export const getAnswersCount = (questionId) => {
-	return Axios.post("/questions/"+questionId+"/answers/count", { questionId});
+	return Axios.get("/questions/answers/count/"+questionId);
 }
