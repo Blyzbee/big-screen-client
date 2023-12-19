@@ -11,6 +11,8 @@ const Survey = () => {
 	const [errorMsg, setErrorMsg] = useState("");
 	const [questions, setQuestions] = useState(null);
 
+	const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
 	const handleChange = (id, value) => {
 		setFormData({ ...formData, [id]: value });
 	};
@@ -20,17 +22,25 @@ const Survey = () => {
 		setErrorMsg("");
 		console.log(formData);
 		if (!formData[step]) {
-			setErrorMsg("veuillez remplir le champ");
+			setErrorMsg("Veuillez remplir le champ");
+			return;
+		}
+		if (step === 1 && !formData[1].match(emailRegex)) {
+			setErrorMsg("Veuillez rentrer un mail valide");
 			return;
 		}
 		if (step < 20 && screenWidth < 1120) {
 			setStep(step + 1);
 			return;
 		}
+		if (Object.values(formData).length < 20) {
+			setErrorMsg("Veuillez remplir tous les champs");
+			return;
+		}
 
 		sendAnswers(formData)
 			.then((res) => {
-				console.log(res.data);
+				console.log(res.data.url);
 				alert(
 					`Votre réponse à bien été enregistrée. Voici votre lien pour consulter vos réponse: ${
 						import.meta.env.VITE_BASE_URL
