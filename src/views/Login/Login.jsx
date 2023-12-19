@@ -3,10 +3,12 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { isLogged, login, saveToken } from "../../services/AccountAuth";
 import Button from "../../components/Button/Button";
+import { useState } from "react";
 
 const Login = () => {
 	let navigate = useNavigate();
 	const { register, handleSubmit } = useForm();
+	const [errorMsg, setErrorMsg] = useState("");
 
 	const onSubmit = (data) => {
 		login(data)
@@ -17,6 +19,7 @@ const Login = () => {
 			})
 			.catch((error) => {
 				console.error("Login error:", error);
+				setErrorMsg("Erreur de mot de passe");
 			});
 	};
 
@@ -49,7 +52,7 @@ const Login = () => {
 							{...register("password", { required: true })}
 						/>
 					</div>
-
+					{errorMsg && <span className="text-error">{errorMsg}</span>}
 					<Button type="submit">Connexion</Button>
 				</form>
 			</div>

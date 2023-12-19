@@ -5,10 +5,21 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
-	background-color:$color-primary;
+	background-color: $color-primary;
 	position: relative;
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: "Roboto Condensed", sans-serif;
 	color: $color-white;
+
+	.button {
+		background-color: $color-white;
+		border: 1px solid $color-white;
+		color: $color-primary;
+
+		&:hover {
+			background-color: $color-primary;
+			color: $color-white;
+		}
+	}
 
 	ul,
 	li {
@@ -45,7 +56,7 @@ nav {
 		padding: 1rem;
 		z-index: 5;
 		height: 100dvh;
-		background-color: $color-white;
+		background-color: $color-primary;
 		transform: translate(100%, 0);
 		transition: transform 300ms;
 		display: flex;
