@@ -1,2 +1,38 @@
 .page-admin-answers {
+    table{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 5rem;
+        background-color: azure;
+    }
+
+    thead{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    tbody{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    tr{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
 }

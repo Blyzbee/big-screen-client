@@ -27,3 +27,9 @@ export const sendAnswers = (formData) => {
 export const getAnswersCount = (questionId) => {
 	return Axios.get("/questions/answers/count/"+questionId);
 }
+
+export const getAllParticipantsAnswers = () => {
+	return Axios.get("/admin/allanswers");
+}
+
+

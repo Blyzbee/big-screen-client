@@ -255,34 +255,42 @@ return (
 				<div className="graphs-area">
 
 					<div className="graphs">
+						<p>6| Quel marque de casque VR utilisez-vous ?</p>
 						<GraphPie pieData={createGraphPie(answersSix)}/>
 					</div>
 
 					<div className="graphs">
+						<p>7| Sur quel magasin d’application achetez vous des contenus VR ?</p>
 						<GraphPie pieData={createGraphPieSept(answersSept)}/>
 					</div>
 
 					<div className="graphs">
+						<p>10| Vous utilisez principalement Bigscreen pour :</p>
 						<GraphPie pieData={createGraphPieX(answersX)}/>
 					</div>
 
 					<div className="graphs">
+						<p>11| Combien donnez-vous de point pour la qualité de l’image sur Bigscreen ?</p>
 						<GraphRadar radarData={createGraphRadarXi(answersXi)}/>
 					</div>
 
 					<div className="graphs">
+						<p>12| Combien donnez-vous de point pour le confort d’utilisation de l’interface Bigscreen ?</p>
 						<GraphRadar radarData={createGraphRadarXii(answersXii)}/>
 					</div>
 
 					<div className="graphs">
-						<GraphRadar radarData={createGraphRadarXii(answersXiii)}/>
+						<p>13| Combien donnez-vous de point pour la connexion réseau de Bigscreen ?</p>
+						<GraphRadar radarData={createGraphRadarXiii(answersXiii)}/>
 					</div>
 
 					<div className="graphs">
+						<p>14| Combien donnez-vous de point pour la qualité des graphismes 3D dans Bigscreen ?</p>
 						<GraphRadar radarData={createGraphRadarXiv(answersXiv)}/>
 					</div>
 
 					<div className="graphs">
+						<p>15| Combien donnez-vous de point pour la qualité audio dans Bigscreen ?</p>
 						<GraphRadar radarData={createGraphRadarXv(answersXv)}/>
 					</div>
 
